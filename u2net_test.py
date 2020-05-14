@@ -51,13 +51,13 @@ def save_output(image_name, pred, d_dir):
     output_path = os.path.join(d_dir, only_image_name)
     np.save(output_path, image_filter)
 
-    aaa = img_name.split(".")
-    bbb = aaa[0:-1]
-    imidx = bbb[0]
-    for i in range(1, len(bbb)):
-        imidx = imidx + "." + bbb[i]
-
-    imo.save(d_dir + imidx + '.png')
+    # aaa = img_name.split(".")
+    # bbb = aaa[0:-1]
+    # imidx = bbb[0]
+    # for i in range(1, len(bbb)):
+    #     imidx = imidx + "." + bbb[i]
+    #
+    # imo.save(d_dir + imidx + '.png')
 
 
 def get_parameters():
