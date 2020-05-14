@@ -156,8 +156,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-saved_models/
-test_data/
+*.pth
+saved_models/*
 test_save_numpy.py
 
 */__pycache__/
