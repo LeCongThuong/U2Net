@@ -1,25 +1,51 @@
 import os
 import time
-start_time = time.time()
+import argparse
 
-dir_path = '/home/love_you/Documents/Study/Mobile/test/'
+
+
+
+
+def add_argument():
+    parser = argparse.ArgumentParser(
+        description="List all file paths in a folder")
+    parser.add_argument("-i",
+                        "--inputDir",
+                        help="Path to the target folder(only absolute path is accepted)",
+                        type=str)
+    parser.add_argument("-o",
+                        "--output",
+                        help="Directory path that files will be saved", type=str)
+
+    parser.add_argument("-n", "--num", help="The number of file path in every file", default=10000, type=int)
+    args = parser.parse_args()
+    return args
+
 
 def scanRecurse(baseDir):
     for entry in os.scandir(baseDir):
         if entry.is_file():
-            yield os.path.join(baseDir,entry.name)
+            yield os.path.join(baseDir, entry.name)
         else:
             yield from scanRecurse(entry.path)
-images_per_file = 10000
-end_number = 0
-i = 0
-for path_file in scanRecurse(dir_path):
-    start = (i // images_per_file)*images_per_file
-    end = start + images_per_file -1
-    file_path = 'file_path_list_' + str(start)+ '_' + str(end) + '.txt'
-    with open(file_path, 'a') as f:
-        f.write("%s\n" % path_file)
-    i = i + 1
 
-print("--- %s seconds ---" % (time.time() - start_time))
+
+def main():
+    start_time = time.time()
+    args = add_argument()
+    dir_path = args.inputDir
+    images_per_file = args.num
+    output_dir = args.output
+    i = 0
+    for path_file in scanRecurse(dir_path):
+        start = i // images_per_file
+        file_path = os.path.join(output_dir, 'file_path_list_' + str(start) + '.txt')
+        with open(file_path, 'a') as f:
+            f.write("%s\n" % path_file)
+        i = i + 1
+    print("--- %s seconds ---" % (time.time() - start_time))
+
+
+if __name__ == '__main__':
+    main()
 
