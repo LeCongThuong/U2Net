@@ -85,7 +85,7 @@ def main():
             line = line.strip()  # preprocess line
             img_name_list.append(line)
     prediction_dir = args.output_dir
-    model_dir = './saved_models/' + model_name + '/' + model_name + '.pth'
+    model_dir = './saved_models/' + model_name + '.pth'
     print(img_name_list)
 
     # --------- 2. dataloader ---------
