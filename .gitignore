@@ -4,10 +4,13 @@
 __pycache__/
 /model/__pycache__/
 *.py[cod]
+data_backup/*
+input_data/*
+ouput_data/*
 *$py.class
 *.pyc
 */*/*/__pycache__/
-
+test.py
 */*/__pycache__/
 
 */__pycache__/
