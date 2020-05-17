@@ -2,7 +2,7 @@ import os
 
 
 def run_segment(path_to_bucket, start, end, colab_num):
-    indicator_file_name = str(colab_num)+'_seg_indicator_file.txt'
+    indicator_file_name = 'indicator_file_dir/' + str(colab_num)+'_seg_indicator_file.txt'
     output_dir_path = os.path.join(path_to_bucket, 'output_numpy_dir')
     indicator_file= os.path.join(path_to_bucket, indicator_file_name)
     try:
