@@ -116,7 +116,7 @@ def main():
     # --------- 4. inference for each image ---------
     for i_test, data_test in enumerate(test_salobj_dataloader):
 
-        print("In processing file %d with name %s ".format(i_test + 1, img_name_list[i_test].split("/")[-1]), end='\r')
+        print("In processing file {} with name {} ".format(i_test + 1, img_name_list[i_test].split("/")[-1]), end='\r')
 
         inputs_test = data_test['image']
         inputs_test = inputs_test.type(torch.FloatTensor)
@@ -140,3 +140,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
