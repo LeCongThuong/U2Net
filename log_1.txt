@@ -1,0 +1,98 @@
+Num of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_2.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~ao_thun~ao_ngan_tay_khong_co~1__2896784365__42997060~ebafb6d9a63151df46bfa1da2bb1f461.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 4731 with name shopee_images~thoi_trang_nam~ao_thun~ao_ngan_tay_co_co~1__2688822225__132670939~9c1ef5f9981999282976565552d4db7d.jpegERROR 4: `/content/U2Net/data/shopee_images~thoi_trang_nam~do_bo_do_mac_nha~bo_the_thao~1__3506006151__196572741~5c5fc90cd896d683f6284147c16f56bb.jpeg' not recognized as a supported file format.
+Traceback (most recent call last):
+  File "u2net_test.py", line 144, in <module>
+    main()
+  File "u2net_test.py", line 117, in main
+    for i_test, data_test in enumerate(test_salobj_dataloader):
+  File "/usr/local/lib/python3.6/dist-packages/torch/utils/data/dataloader.py", line 345, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.6/dist-packages/torch/utils/data/dataloader.py", line 856, in _next_data
+    return self._process_data(data)
+  File "/usr/local/lib/python3.6/dist-packages/torch/utils/data/dataloader.py", line 881, in _process_data
+    data.reraise()
+  File "/usr/local/lib/python3.6/dist-packages/torch/_utils.py", line 395, in reraise
+    raise self.exc_type(msg)
+AttributeError: Caught AttributeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/usr/local/lib/python3.6/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.6/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/content/U2Net/data_loader.py", line 233, in __getitem__
+    image = io.imread(self.image_name_list[idx])
+  File "/usr/local/lib/python3.6/dist-packages/skimage/io/_io.py", line 48, in imread
+    img = call_plugin('imread', fname, plugin=plugin, **plugin_args)
+  File "/usr/local/lib/python3.6/dist-packages/skimage/io/manage_plugins.py", line 210, in call_plugin
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/skimage/io/_plugins/imageio_plugin.py", line 10, in imread
+    return np.asarray(imageio_imread(*args, **kwargs))
+  File "/usr/local/lib/python3.6/dist-packages/imageio/core/functions.py", line 223, in imread
+    return reader.get_data(0)
+  File "/usr/local/lib/python3.6/dist-packages/imageio/core/format.py", line 347, in get_data
+    im, meta = self._get_data(index, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/imageio/plugins/gdal.py", line 66, in _get_data
+    return self._ds.ReadAsArray(), self._get_meta_data(index)
+AttributeError: 'NoneType' object has no attribute 'ReadAsArray'
+
+Num of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_3.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~ao_thun~ao_ni~1__2882297596__17809622~ffbd053cebceb19efcab11a89c69d3c2.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 5847 with name shopee_images~thoi_trang_nam~ao_thun~ao_ngan_tay_co_co~1__1732985160__16872631~be421050a9c722f20736ae31b5d34ab7.jpeg/content/U2Net/data_loader.py:197: RuntimeWarning: invalid value encountered in true_divide
+  image = image/np.max(image)
+In processing file 10000 with name shopee_images~thoi_trang_nam~quan~quan_the_thao~1__2905717615__162191918~5c45f0cea7dfe57cbf2ece59a9aab270.jpegNum of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_4.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~do_bo_do_mac_nha~bo_he~1__2634209328__129115093~76087ae3097bd8516f17952926bb0eb9.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 915 with name shopee_images~thoi_trang_nam~ao_khoac__ao_vest~ao_khoac_phao~1__7600337389__90358458~f8ac95e350953735f182d0caf522f433.jpegTraceback (most recent call last):
+  File "u2net_test.py", line 144, in <module>
+    main()
+  File "u2net_test.py", line 138, in main
+    save_output(img_name_list[i_test], pred, prediction_dir)
+  File "u2net_test.py", line 52, in save_output
+    np.save(output_path, image_filter)
+  File "<__array_function__ internals>", line 6, in save
+  File "/usr/local/lib/python3.6/dist-packages/numpy/lib/npyio.py", line 541, in save
+    fid = open(file, "wb")
+OSError: [Errno 5] Input/output error: '/content/U2Net/u2net_output/shopee_images~thoi_trang_nam~ao_khoac__ao_vest~ao_khoac_phao~1__7600337389__90358458~f8ac95e350953735f182d0caf522f433.npy'
+Num of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_5.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~ao_thun~ao_ni~1__4607291980__186850907~63d011f24a8e08ba7571f8a7c6e51fd7.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 10000 with name shopee_images~thoi_trang_nam~quan~quan_the_thao~1__6500750612__162191918~6d9d115d00c3ba77ce8117276e5b1b22.jpegNum of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_6.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~ao_so_mi~dai_tay~1__1360542423__79036585~0f4ed78c94d293fee3f96595103e021c.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 10000 with name shopee_images~thoi_trang_nam~do_doi~khac~1__7805892532__181741332~b4dd4cc75a2bbbb04170268205ac221f.jpegNum of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_7.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~ao_ni_ao_len~ao_co_tru~1__2889378752__161757166~71071b9bb62232589512778384fc3b57.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 6124 with name shopee_images~thoi_trang_nam~quan~quan_short~1__1219874530__61218341~acf5a3a3dafe8ce1a1d7db60bb55f366.jpeg/content/U2Net/data_loader.py:197: RuntimeWarning: invalid value encountered in true_divide
+  image = image/np.max(image)
+In processing file 10000 with name shopee_images~thoi_trang_nam~ao_so_mi~ngan_tay~1__2444244516__150121433~36ff54754be612d18511b686114f0bda.jpegNum of image paths in  /content/U2Net/saved_models/image_name_files_dir/file_path_list_8.txt is:  10000
+...load U2NET---173.6 MB
+In processing file 1 with name shopee_images~thoi_trang_nam~ao_thun~ao_ngan_tay_khong_co~1__1680959374__81260370~e7ec0279889984ab6a284d470366151d.jpeg/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:2973: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/usr/local/lib/python3.6/dist-packages/torch/nn/functional.py:1569: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+In processing file 3336 with name shopee_images~thoi_trang_nam~ao_thun~ao_ngan_tay_khong_co~1__1628166446__88713005~e94e6a0fc5b469d6ad77ea0a3ba4dd4f.jpeg
+
+log_error_dir/segmentation

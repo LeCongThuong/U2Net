@@ -1,11 +1,10 @@
 import os
 
 
-def run_segment(path_to_bucket, start, end, colab_num, log_error_folder_path):
+def run_segment(path_to_bucket, output_dir_path, start, end, colab_num, log_error_folder_path):
     error_file_path = os.path.join(log_error_folder_path, str(colab_num)+'_'+'error_file.txt')
     log_file_path = os.path.join(log_error_folder_path, str(colab_num)+'_'+'log_file.txt')
-    indicator_file_name = 'indicator_file_dir/' + str(colab_num)+'_seg_indicator_file.txt'
-    output_dir_path = os.path.join(path_to_bucket, 'output_numpy_dir')
+    indicator_file_name = 'indicator_file_dir/segmentation/' + str(colab_num)+'_seg_indicator_file.txt'
     indicator_file= os.path.join(path_to_bucket, indicator_file_name)
     try:
         with open(indicator_file, 'r') as ind_file:
