@@ -12,7 +12,6 @@ from torchvision import transforms, utils
 from PIL import Image
 #==========================dataset load==========================
 
-error_file = '/content/U2Net/saved_models/log_error_dir/segmentation/image_error.txt'
 
 
 class RescaleT(object):
@@ -81,6 +80,7 @@ class RandomCrop(object):
 		else:
 			assert len(output_size) == 2
 			self.output_size = output_size
+
 	def __call__(self,sample):
 		imidx, image, label = sample['imidx'], sample['image'], sample['label']
 
@@ -261,11 +261,60 @@ class SalObjDataset(Dataset):
 				sample = self.transform(sample)
 			return sample
 		except Exception as e:
-			with open(error_file, 'a+') as err_file:
-				print(e)
-				error_filename = "badimage:" + str(self.image_name_list[idx]) + ":" + str(e) + '\n'
-				err_file.write(error_filename)
-			return None
+			try:
+				image = io.imread(self.image_name_list[idx - 1])
+				imname = self.image_name_list[idx - 1]
+				imidx = np.array([idx - 1])
+
+				if (0 == len(self.label_name_list)):
+					label_3 = np.zeros(image.shape)
+				else:
+					label_3 = io.imread(self.label_name_list[idx - 1])
+
+				label = np.zeros(label_3.shape[0:2])
+				if (3 == len(label_3.shape)):
+					label = label_3[:, :, 0]
+				elif (2 == len(label_3.shape)):
+					label = label_3
+
+				if (3 == len(image.shape) and 2 == len(label.shape)):
+					label = label[:, :, np.newaxis]
+				elif (2 == len(image.shape) and 2 == len(label.shape)):
+					image = image[:, :, np.newaxis]
+					label = label[:, :, np.newaxis]
+
+				sample = {'imidx': imidx, 'image': image, 'label': label}
+
+				if self.transform:
+					sample = self.transform(sample)
+				return sample
+			except  Exception as ex:
+				image = io.imread(self.image_name_list[idx + 1])
+				imname = self.image_name_list[idx + 1]
+				imidx = np.array([idx + 1])
+
+				if (0 == len(self.label_name_list)):
+					label_3 = np.zeros(image.shape)
+				else:
+					label_3 = io.imread(self.label_name_list[idx + 1])
+
+				label = np.zeros(label_3.shape[0:2])
+				if (3 == len(label_3.shape)):
+					label = label_3[:, :, 0]
+				elif (2 == len(label_3.shape)):
+					label = label_3
+
+				if (3 == len(image.shape) and 2 == len(label.shape)):
+					label = label[:, :, np.newaxis]
+				elif (2 == len(image.shape) and 2 == len(label.shape)):
+					image = image[:, :, np.newaxis]
+					label = label[:, :, np.newaxis]
+
+				sample = {'imidx': imidx, 'image': image, 'label': label}
+
+				if self.transform:
+					sample = self.transform(sample)
+				return sample
 
 
 

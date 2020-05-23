@@ -28,7 +28,7 @@ import time
 
 def my_collate(batch):
     batch = list(filter(lambda img: img is not None, batch))
-    return torch.utils.data.Dataloader.default_collate(list(batch))
+    return torch.utils.data.dataloader.default_collate(list(batch))
 
 
 def normPRED(d):
@@ -109,6 +109,7 @@ def main():
                                         transform=transforms.Compose([RescaleT(320),
                                                                       ToTensorLab(flag=0)])
                                         )
+
     test_salobj_dataloader = DataLoader(test_salobj_dataset,
                                         batch_size=1,
                                         shuffle=False,
@@ -154,7 +155,7 @@ def main():
         except Exception as error:
             print(error)
             with open(error_file_link, 'a+') as err_file:
-                error_mess = "io:" + img_name_list[i_test] + ':' + str(error) + '\n'
+                error_mess = img_name_list[i_test] + '*' + str(error) + '\n'
                 err_file.write(error_mess)
             continue
 
