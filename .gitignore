@@ -2,6 +2,7 @@
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
+logs/
 /model/__pycache__/
 *.py[cod]
 data_backup/*

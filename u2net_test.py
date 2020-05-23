@@ -26,6 +26,11 @@ import time
 # normalize the predicted SOD probability map
 
 
+def my_collate(batch):
+    batch = list(filter(lambda img: img is not None, batch))
+    return torch.utils.data.Dataloader.default_collate(list(batch))
+
+
 def normPRED(d):
     ma = torch.max(d)
     mi = torch.min(d)
@@ -107,7 +112,8 @@ def main():
     test_salobj_dataloader = DataLoader(test_salobj_dataset,
                                         batch_size=1,
                                         shuffle=False,
-                                        num_workers=1)
+                                        num_workers=1,
+                                        collate_fn=my_collate)
 
     # --------- 3. model define ---------
     if model_name == 'u2net':
@@ -147,8 +153,8 @@ def main():
             del d1, d2, d3, d4, d5, d6, d7
         except Exception as error:
             print(error)
-            with open(error_file_link, 'a') as err_file:
-                error_mess = img_name_list[i_test] + '*' + str(error) + '\n'
+            with open(error_file_link, 'a+') as err_file:
+                error_mess = "io:" + img_name_list[i_test] + ':' + str(error) + '\n'
                 err_file.write(error_mess)
             continue
 
